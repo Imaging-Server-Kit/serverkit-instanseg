@@ -81,7 +81,7 @@ class Server(serverkit.Server):
         else:
             # The brightfield nuclei model can be returned as Shapely features
             segmentation = np.squeeze(segmentation)
-            return [(segmentation, segmentation_params, "labels")]
+            return [(segmentation, segmentation_params, "instance_mask")]
 
     def load_sample_images(self) -> List["np.ndarray"]:
         """Loads one or multiple sample images."""

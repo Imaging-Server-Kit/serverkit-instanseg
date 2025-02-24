@@ -3,8 +3,6 @@
 
 Implementation of a web server for [InstanSeg](https://github.com/instanseg/instanseg/).
 
-Author: EPFL Center for Imaging
-
 ## Installing the algorithm server with `pip`
 
 Install dependencies:
