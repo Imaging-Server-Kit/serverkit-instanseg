@@ -77,7 +77,7 @@ class Server(serverkit.Server):
 
         if model_name == "fluorescence_nuclei_and_cells":
             # The fluorescence model returns a 3D segmentation array for the 2D+c image
-            return [(segmentation, segmentation_params, "labels3d")]
+            return [(segmentation, segmentation_params, "mask3d")]
         else:
             # The brightfield nuclei model can be returned as Shapely features
             segmentation = np.squeeze(segmentation)
