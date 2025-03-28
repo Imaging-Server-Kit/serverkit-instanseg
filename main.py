@@ -50,7 +50,7 @@ class Parameters(BaseModel):
         return image_array
 
 
-class Server(serverkit.Server):
+class InstanSegServer(serverkit.AlgorithmServer):
     def __init__(
         self,
         algorithm_name: str = "instanseg",
@@ -71,7 +71,9 @@ class Server(serverkit.Server):
         )
         segmentation = segmentation[0].cpu().numpy()
 
-        segmentation = segmentation[::-1]  # Apparently the channel axis needs to be inverted?
+        segmentation = segmentation[
+            ::-1
+        ]  # Apparently the channel axis needs to be inverted?
 
         segmentation_params = {"name": f"InstanSeg ({model_name})"}
 
@@ -90,7 +92,7 @@ class Server(serverkit.Server):
         return images
 
 
-server = Server()
+server = InstanSegServer()
 app = server.app
 
 if __name__ == "__main__":
